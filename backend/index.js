@@ -7,22 +7,30 @@ const session = require("express-session")
 
 const app = express()
 
+app.set('trust proxy', 1)
+
 app.use(cookieParser())
 app.use(express.json())
+
 app.use(cors({
-    origin: (origin, cb) => cb(null, true),
-    credentials: true
+    origin: true,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    exposedHeaders: ['set-cookie']
 }));
 
 app.use(session({
     secret: "asdasdasdasdasdasd",
+    name: 'sessionId',
     resave: false,
     saveUninitialized: false,
     cookie: {
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000,
-        sameSite: "lax",
-        secure: false,
+        sameSite: "none",
+        secure: true,
+        domain: undefined
     }
 }))
 
