@@ -4,7 +4,7 @@ const Index = () => {
     useEffect(() => {
         const test = async () => {
             try {
-                const res = await fetch("https://shiny-broccoli-7r4gg65p9gr2xxr6-3000.app.github.dev/me", {
+                const res = await fetch("https://symmetrical-engine-69465rq9xpvpf47gx-3000.app.github.dev/me", {
                     credentials: "include"
                 });
                 console.log(await res.json())
