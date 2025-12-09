@@ -1,7 +1,12 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 const Index = () => {
+    const [click, setClicks] = useState(0)
+    const handleClick = () => {
+        setClicks ((val) => val+1)
+    }
     useEffect(() => {
+         
         const test = async () => {
             try {
                 const res = await fetch("https://symmetrical-engine-69465rq9xpvpf47gx-3000.app.github.dev/me", {
@@ -28,8 +33,8 @@ const Index = () => {
 
                 <div className="click-counter">
                     <h2>Твои клики</h2>
-                    <div className="clicks-display">42</div>
-                    <button className="click-button">👆 КЛИКНИ!</button>
+                    <div className="clicks-display">{click}</div>
+                    <button className="click-button" onClick={handleClick}>👆 КЛИКНИ!</button>
                 </div>
 
                 <div className="leaderboard">

@@ -8,7 +8,7 @@ const SignUp = () => {
         }
 
         try {
-            const res = await fetch("https://symmetrical-engine-69465rq9xpvpf47gx-3000.app.github.dev/auth/signup", {
+            const res = await fetch("https://symmetrical-engine-69465rq9xpvpf47gx-3000.app.github.dev/signup", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
